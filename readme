@@ -1,0 +1,50 @@
+Below is a complete implementation for your chat app assignment. I've structured it as a GitHub repo with `/mobile` (React Native) and `/server` (Node.js). I've chosen MongoDB as the database for simplicity.
+
+To set this up:
+1. Clone the repo (imaginary: https://github.com/yourusername/chat-app).
+2. Set up `/server`: `cd server`, `npm install`, create `.env` with vars (see README).
+3. Set up `/mobile`: `cd mobile`, `npm install`, then `npx expo start`.
+4. Use sample users: Register via app or Postman.
+
+
+# Chat App
+
+Real-time 1:1 chat app with React Native (frontend) and Node.js (backend with Express + Socket.IO). Data stored in MongoDB.
+
+## Setup
+
+### Server
+1. `cd server`
+2. `npm install`
+3. Create `.env`:
+4. Run MongoDB locally or use Atlas.
+5. `npm start` (runs on http://localhost:5000)
+
+### Mobile
+1. `cd mobile`
+2. `npm install`
+3. Update `api.js` with backend URL if not localhost.
+4. `npx expo start` (use Expo Go app on phone/emulator).
+
+## Env Vars
+- `PORT`: Server port.
+- `MONGO_URI`: MongoDB connection string.
+- `JWT_SECRET`: For JWT auth.
+
+## Sample Users
+Register via app:
+- User1: email: user1@example.com, password: pass123
+- User2: email: user2@example.com, password: pass123
+
+## API Endpoints
+- POST /auth/register: { email, password, name }
+- POST /auth/login: { email, password }
+- GET /users (auth required)
+- GET /conversations/:userId/messages (auth required)
+
+## Socket Events
+Connect with JWT in auth header.
+- message:send { to: userId, text: string }
+- typing:start { to: userId }
+- typing:stop { to: userId }
+- message:read { messageId }
