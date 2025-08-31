@@ -48,3 +48,10 @@ Connect with JWT in auth header.
 - typing:start { to: userId }
 - typing:stop { to: userId }
 - message:read { messageId }
+
+Notes:
+- This is an MVP. For production, use AsyncStorage instead of localStorage in React Native.
+- Add error handling, styles (use StyleSheet), and more features as needed.
+- Test with multiple devices/emulators.
+- Messages persist in DB, real-time via Socket.IO, with typing, online status, and read receipts (status: sent/read).
+- User list shows all users with last message.
